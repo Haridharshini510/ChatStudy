@@ -77,28 +77,28 @@ Client-server chat applications are foundational to real-time communication over
 
 ## Client
 
-import socket
-from datetime import datetime
-s=socket.socket()
-s.bind(('localhost',8000))
-s.listen(5)
-c,addr=s.accept()
-print("Client Address : ",addr)
-now = datetime.now()
-c.send(now.strftime("%d/%m/%Y %H:%M:%S").encode())
-ack=c.recv(1024).decode()
-if ack:
- &nbsp; &nbsp; &nbsp; print(ack)
-c.close()
+import socket <br>
+from datetime import datetime <br>
+s=socket.socket() <br>
+s.bind(('localhost',8000)) <br>
+s.listen(5) <br>
+c,addr=s.accept() <br>
+print("Client Address : ",addr) <br>
+now = datetime.now() <br>
+c.send(now.strftime("%d/%m/%Y %H:%M:%S").encode()) <br>
+ack=c.recv(1024).decode() <br>
+if ack: <br>
+ &nbsp; &nbsp; &nbsp; print(ack) <br>
+c.close() <br>
 
 ## Server
 
-import socket
-s=socket.socket()
-s.connect(('localhost',8000))
-print(s.getsockname())
-print(s.recv(1024).decode())
-s.send("acknowledgement recived from the server".encode())
+import socket <br>
+s=socket.socket() <br>
+s.connect(('localhost',8000)) <br>
+print(s.getsockname()) <br>
+print(s.recv(1024).decode()) <br>
+s.send("acknowledgement recived from the server".encode()) <br>
 
 ## Output
 
